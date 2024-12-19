@@ -19,7 +19,7 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: [""],
+    origin: ["https://alphastaypune.vercel.app/"],
     methods:["POST","GET"],
     credentials:true
   })
