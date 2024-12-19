@@ -5,7 +5,7 @@
   ],
   "rewrites":[
     {
-      "src":"/(.*)",
+      "source":"/(.*)",
       "dest":"/app.js"
     }
   ]
