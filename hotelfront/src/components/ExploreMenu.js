@@ -10,7 +10,7 @@ function ExploreMenu({category,setCategory}) {
     event.preventDefault();
     let key = event.target.elements.searchInput.value;
     if (key) {
-      let result = await axios.get(`http://localhost:4000/api/search/${key}`);
+      let result = await axios.get(`https://alphastay.vercel.app/api/search/${key}`);
       const data = result.data;
       if (data) {
         setHotelList(data);
