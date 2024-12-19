@@ -1,0 +1,507 @@
+import React, { useEffect, useState } from "react";
+import "../styles/Update.css";
+import upload from "../assets/upload_area.png";
+import { localities } from "../pages/localities";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+
+function Update() {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [locality, setLocality] = useState("");
+  const [price, setPrice] = useState("");
+  const [contact, setContact] = useState("");
+  const [map, setMap] = useState("");
+
+  const [amenities, setAmenities] = useState({
+    ac: false,
+    tv: false,
+    wifi: false,
+    geyser: false,
+    powerBackup: false,
+  });
+  const [bed, setBed] = useState({
+    single: false,
+    kingsize: false,
+    queensize: false,
+  });
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState([upload]);
+
+  const email = JSON.parse(localStorage.getItem("email")).email;
+
+  const handleAmenityChange = (e) => {
+    setAmenities({
+      ...amenities,
+      [e.target.name]: e.target.checked,
+    });
+  };
+  const handleBedChange = (e) => {
+    setBed({
+      ...bed,
+      [e.target.name]: e.target.checked,
+    });
+  };
+
+ 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (email) {
+      console.log("id refers to", email.email);
+      displayHotelDetails(email);
+    }
+  }, [email]);
+
+  const displayHotelDetails = async (adminEmail) => {
+    try {
+      let result = await axios.get(`http://localhost:4000/api/hotels/admin?email=${adminEmail}`);
+      const data=result.data;
+      console.log(data);
+      if (data && data.amenities && data.bed) {
+        setName(data.name || "");
+        setLocality(data.locality || "");
+        setDescription(data.description || "");
+        setPrice(data.price || "");
+        setAddress(data.address || "");
+        setContact(data.contact || "");
+        setMap(data.map || "");
+
+        // Update the state with the received data
+        setAmenities({
+          ac: data.amenities.ac || false,
+          tv: data.amenities.tv || false,
+          wifi: data.amenities.wifi || false,
+          geyser: data.amenities.geyser || false,
+          powerBackup: data.amenities.powerBackup || false,
+        });
+
+        setBed({
+          single: data.bed.single || false,
+          kingsize: data.bed.kingsize || false,
+          queensize: data.bed.queensize || false,
+        });
+        if (data.image && Array.isArray(data.image)) {
+          setImagePreview(
+            data.image.map((img) => `http://localhost:4000/images/${img}`)
+          ); // Use server image if exists
+        }
+        // Assuming you have an image URL in the response
+      } else {
+        console.error("Invalid data format", data);
+        alert("Invalid data format received from the server.");
+      }
+    } catch (error) {
+      console.log("error occurring", error);
+      alert("An error occurred while fetching the data. Please try again.");
+    }
+  };
+
+  const updateHotel = async () => {
+    console.log(name, description, address, locality, price, amenities, bed);
+    let formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("address", address);
+    formData.append("locality", locality);
+    formData.append("price", price);
+    formData.append("contact", contact);
+    formData.append("map", map);
+    formData.append("amenities", JSON.stringify(amenities)); // Stringify amenities
+    formData.append("bed", JSON.stringify(bed)); // Stringify bed details
+
+    if (image && image.length > 0) {
+      image.forEach((file) => formData.append("images", file)); // Append images
+    }
+
+    let result = await axios.put(
+      `http://localhost:4000/api/hotels/update?email=${email}`,
+      {
+      formData,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data=result.data;
+    console.log(data);
+    navigate("/");
+  };
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    setImage(files);
+    const previews = files.map((file) => URL.createObjectURL(file));
+    setImagePreview(previews);
+  };
+
+  useEffect(() => {
+    return () => {
+      imagePreview.forEach((preview) => URL.revokeObjectURL(preview));
+    };
+  }, [imagePreview]);
+
+  return (
+    <div className="updatehotel" id="updatehotel">
+      <form
+        className="flex-col"
+        onSubmit={(e) => {
+          e.preventDefault();
+          updateHotel();
+        }}
+      >
+        <div className="update-img-upload flex-col">
+          <p>Upload Image</p>
+          <label for="image">
+            {imagePreview.length > 0 ? (
+              imagePreview.map((img, index) => (
+                <img key={index} src={img} alt="Not Available" />
+              ))
+            ) : (
+              <img src={upload} alt="Not Available" />
+            )}
+          </label>
+          <input
+            onChange={handleImageChange}
+            type="file"
+            name="image"
+            id="image"
+            hidden
+            multiple
+            required
+          />
+        </div>
+        <div className="update-hotel-name flex-col">
+          <p>Hotel Name</p>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Hotel Name"
+            required
+          />
+        </div>
+        <div className="update-hotel-description flex-col">
+          <p>Hotel Description</p>
+          <textarea
+            type="text"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description of the hotel"
+            rows="6"
+            required
+          />
+        </div>
+        <div className="add-locality-price">
+          <div className="add-locality flex-col">
+            <p>Hotel Locality</p>
+            <select
+              name="locality"
+              value={locality}
+              onChange={(e) => setLocality(e.target.value)}
+            >
+              {localities.map((loc, index) => (
+                <option key={index} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="add-price flex-col">
+            <p>Room Price</p>
+            <input
+              type="number"
+              name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="650"
+              required
+            />
+          </div>
+          <div className="add-price flex-col">
+            <p>Contact Number</p>
+            <input
+              type="number"
+              name="contact"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              placeholder="xxxxx-xxxxx"
+              maxLength={10}
+              minLength={10}
+              required
+            />
+          </div>
+        </div>
+        <div className="update-hotel-address flex-col">
+          <p>Hotel Address</p>
+          <textarea
+            type="text"
+            name="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address of the hotel"
+            rows="6"
+            required
+          />
+        </div>
+        <p>Map to the Hotel</p>
+        <div className="add-amenities flex-col">
+          <input
+            type="text"
+            name="location"
+            value={map}
+            onChange={(e) => setMap(e.target.value)}
+            placeholder="Paste the location of the hotel"
+            required
+          />
+        </div>
+        <div className="add-amenities flex-col">
+          <p>Amenities</p>
+          <div className="amenities-list">
+            <label>
+              <input
+                type="checkbox"
+                name="ac"
+                checked={amenities.ac}
+                onChange={handleAmenityChange}
+              />
+              A.C
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="tv"
+                checked={amenities.tv}
+                onChange={handleAmenityChange}
+              />
+              T.V
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="wifi"
+                checked={amenities.wifi}
+                onChange={handleAmenityChange}
+              />
+              Wifi
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="geyser"
+                checked={amenities.geyser}
+                onChange={handleAmenityChange}
+              />
+              Geyser
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="powerBackup"
+                checked={amenities.powerBackup}
+                onChange={handleAmenityChange}
+              />
+              Power Backup
+            </label>
+          </div>
+        </div>
+        <div className="add-amenities flex-col">
+          <p>Types of Beds</p>
+          <div className="amenities-list">
+            <label>
+              <input
+                type="checkbox"
+                name="single"
+                checked={bed.single}
+                onChange={handleBedChange}
+              />
+              Single Bed
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="kingsize"
+                checked={bed.kingsize}
+                onChange={handleBedChange}
+              />
+              King Size Bed
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="queensize"
+                checked={bed.queensize}
+                onChange={handleBedChange}
+              />
+              Queen SIze Bed
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" className="add-btn">
+          UPDATE
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default Update;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.updatehotel {
+    width: 70%;
+    margin-left: max(5vw, 25px);
+    margin-top: 50px;
+    color: #6d6d6d;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update form {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .update-img-upload img {
+    width: 120px;
+    border: 2px solid rgb(174,38,0); 
+    border-radius: 5px;
+  }
+  .update-img-upload p{
+    background-color: rgb(174,38,0);
+    color: white;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .update-hotel-name,
+  .update-hotel-description, .update-hotel-address  {
+    background-color: rgb(174,38,0);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .add-hotel-name input, .add-hotel-address
+  .add-hotel-description textarea {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .add-locality-price {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .add-locality-price select,
+  .add-locality-price input {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(174,38,0);
+    color: white;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  
+  .add-amenities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(174,38,0);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .amenities-list label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .add-rooms {
+    background-color: rgb(174, 38, 0);
+    color: white;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .rooms-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .rooms-list label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .rooms-list input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .rooms-list input[type="number"] {
+    width: 70px;
+    padding: 5px;
+  }
+
+
+  .add-btn {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    background-color: rgb(174,38,0);
+    color: white;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .add-btn:hover {
+    background-color: rgb(224,100,100);
+  }
+  

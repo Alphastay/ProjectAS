@@ -1,0 +1,164 @@
+.header_container {
+    padding: 1rem 1rem 5rem 1rem;
+}
+
+.section_container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 1rem;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.header_image_container {
+    margin-top: -20px;
+    position: relative;
+    min-height: 500px;
+    background-image: linear-gradient(to right, rgba(92, 99, 116, 0.9), rgba(25, 26, 27, 0.1)),
+        url(https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+}
+
+.header_content {
+    width: 100%;
+    padding: 5rem 2rem;
+}
+
+.header_content h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.line {
+    font-size: 2rem;
+    margin-top: -30px;
+}
+
+.header_content p {
+    color: #f3f4f6;
+    text-align: center;
+    font-weight: 600;
+}
+
+.header_buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.find-hotels-btn,
+.register-hotels-btn {
+    padding: 10px 25px;
+    border: 1px solid rgb(174,38,0);
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(174,38,0);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 550;
+    margin: 0 10px;
+}
+
+.our_mission_content {
+    background: rgb(174,38,0);
+    color: white;
+    text-align: center;
+    border-radius: 2rem;
+    margin-top: -80px;
+    padding: 5rem 2rem;
+}
+
+.our_mission_content .line {
+    margin-top: 1px
+}
+
+
+.our_mission_content button {
+    margin-top: 30px;
+}
+
+.explore-btn {
+    padding: 10px 25px;
+    border: 1px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-size: 1.05rem;
+    font-weight: 550;
+    margin: 0 10px;
+}
+
+.why_choose_AlphaStay_container {
+    text-align: center;
+    margin-top: -80px;
+}
+
+.why_choose_AlphaStay_container .line {
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+
+.services-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.services-section .service-box {
+    flex: 1 1 10rem;
+}
+
+.service-box i {
+    font-size: 60px;
+    color: rgb(174,38,0);
+}
+
+.services h3 {
+    font-size: 2.6rem;
+}
+
+.service-box p {
+    color: #424242;
+    margin: 1rem 0 3rem;
+}
+
+.contact_content {
+    text-align: center;
+    margin-top: -80px;
+}
+
+.contact_content .line {
+    margin: 1px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-btn i {
+    color: rgb(108, 108, 108);
+    font-size: 35px;
+    cursor: pointer;
+}
+.social-btn i:not(:last-child) {
+    margin-right: 35px;
+}
+footer{
+    background: rgb(217, 217, 217);
+    color: rgb(90, 90, 90);
+    text-align: center;
+    padding: 10px;
+}

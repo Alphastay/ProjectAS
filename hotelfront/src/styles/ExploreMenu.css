@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.explore-menu {
+  max-width: 1200px;
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.explore-menu-container {
+  padding: 1rem 1rem 5rem 1rem;
+}
+
+.explore_image_container {
+  margin-top: 70px;
+  position: relative;
+  min-height: 500px;
+  background-image: linear-gradient(to right,
+      rgba(92, 99, 116, 0.9),
+      rgba(25, 26, 27, 0.1)),
+    url(https://images.unsplash.com/photo-1621293954908-907159247fc8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bHV4dXJ5JTIwaG90ZWx8ZW58MHx8MHx8fDA%3D);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+}
+
+.exploreHeader_content {
+  max-width: 600px;
+  padding: 5rem 2rem;
+  text-align: left;
+}
+
+.exploreHeader_content h1 {
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.exploreHeader_content p {
+  color: #f3f4f6;
+}
+
+.search_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#searchInput {
+  padding: 10px;
+  font-size: 16px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search_container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  margin: 2px 0px;
+  padding: 30px;
+  overflow-x: scroll;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-menu-list-item p {
+  margin-top: 4px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: rgb(174, 38, 0);
+  width: 170px;
+  height: 60px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.explore-menu-list-item .active {
+  color: white;
+  background-color: rgb(224, 100, 100);
+  border: 1px solid rgb(174, 38, 0);
+
+}
+
+
+@media (width < 600px) {
+
+  .exploreHeader_content h1{
+    font-size: 3rem;
+  }
+
+  .search_container{
+    margin-top: -10px;
+  }
+
+}

@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* .homeSection_container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 1rem;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.homeSection_container.show {
+    opacity: 1;
+    transform: translateY(0);
+  } */
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 2rem 5%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.topnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .topnav input[type="text"] {
+    width: 60%;
+    padding: 10px 15px;
+    border: 2px solid #ae2600;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .topnav input[type="text"]:focus {
+    border-color: #ae2600;
+    box-shadow: 0 0 10px rgba(174, 38, 0, 0.2);
+  }
+  
+  .topnav button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #ae2600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .topnav button:hover {
+    background-color: #8e1f00;
+  }
+  
+  .topnav button i {
+    font-size: 1.2rem;
+  }
+
+
+@media screen and (max-width: 600px) {
+    .box{
+      margin-top: -380px;
+    }
+  }
+
+.navbar_logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar_logo img {
+    width: 65px;
+    margin-right: 10px;
+}
+
+.navbar_logo h2 {
+    font-size: 1.2rem;
+    margin-left: -10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.navbar_menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-icon,
+.close-icon i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+i:hover {
+    color: rgb(174,38,0);
+}
+
+.navbar_menu a {
+    color: #000;
+    text-decoration: none;
+    size: 1.2rem;
+    font-weight: 550;
+    padding-right: 1rem;
+}
+
+.navbar_menu a:hover {
+    text-decoration: underline;
+    color: rgb(174,38,0);
+}
+
+.menu-icon,
+.close-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.home_container {
+  
+    margin: 20px;
+}
+
+.home_container {
+    margin-top: 90px;
+    position: relative;
+    min-height: 500px;
+    background-image: linear-gradient(to right, rgba(92, 99, 116, 0.9), rgba(25, 26, 27, 0.1)),
+        url(https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+}
+
+.home_content {
+    width: 100%;
+    padding: 5rem 2rem;
+}
+
+.home_content h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.line {
+    font-size: 2rem;
+    margin-top: -30px;
+}
+
+.home p {
+    color: #f3f4f6;
+    text-align: center;
+    font-weight: 600;
+}
+
+.home_buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.find-hotels-btn,
+.register-hotels-btn {
+    padding: 10px 25px;
+    border: 1px solid rgb(174,38,0);
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(174,38,0);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 550;
+    margin: 0 10px;
+}
+.help_form{
+    color: white;
+    background-color: black;
+    padding: 5px;
+   
+}
+.our_mission_content {
+    background: rgb(174,38,0);
+    color: white;
+    text-align: center;
+    border-radius: 2rem;
+    margin-top: -80px;
+    padding: 5rem 2rem;
+}
+
+.our_mission_content .line {
+    margin-top: 1px
+}
+
+
+.our_mission_content button {
+    margin-top: 30px;
+}
+
+
+
+.explore-btn {
+    padding: 10px 25px;
+    border: 1px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-size: 1.05rem;
+    font-weight: 550;
+    margin: 0 10px;
+}
+
+.why_choose_AlphaStay_container {
+    text-align: center;
+    margin-top: -80px;
+}
+
+.why_choose_AlphaStay_container .line {
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+
+.services-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.services-section .service-box {
+    flex: 1 1 10rem;
+}
+
+.service-box i {
+    font-size: 60px;
+    color: rgb(174,38,0);
+}
+
+.services h3 {
+    font-size: 2.6rem;
+}
+
+.service-box p {
+    color: #424242;
+    margin: 1rem 0 3rem;
+}
+
+.list_property_content {
+    background: rgb(51, 51, 51);
+    color: white;
+    text-align: center;
+    border-radius: 2rem;
+    margin-top: -120px;
+    padding: 5rem 2rem;
+}
+
+.list_property_btn {
+    padding: 10px 25px;
+    border: 1px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-size: 1.05rem;
+    font-weight: 550;
+    margin: 0 10px;
+    margin-top: 1rem;
+}
+
+.contact_content {
+    text-align: center;
+    margin-top: -80px;
+}
+
+.contact_content .line {
+    margin: 1px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-btn i {
+    color: rgb(108, 108, 108);
+    font-size: 35px;
+    cursor: pointer;
+}
+.social-btn i:not(:last-child) {
+    margin-right: 35px;
+}
+footer{
+    background: rgb(217, 217, 217);
+    color: rgb(90, 90, 90);
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-icon i{
+    font-size: 60px;
+    color: rgb(174,38,0);
+}
+
+.navMenu{
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    height: fit-content;
+    min-height: 15rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+  }
+  .listItem{
+    color: white;
+    padding: 0.5rem 3rem;
+    margin: 0.25rem;
+    background-color: rgb(174,38,0);
+
+  }
+
+  .navMenu :hover{
+    color: white;
+    padding: 0.5rem 3rem;
+    margin: 0.25rem;
+    background-color: rgb(224, 100, 100);
+  }
+
+@media screen and (max-width: 768px) {
+    .navbar_menu {
+        display: none;
+    }
+
+    .navbar_menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar_menu.active a {
+        margin-bottom: 10px;
+    }
+
+   
+}
+
+@media screen and (max-width: 600px) {
+    .navbar_menu {
+        display: none;
+    }
+
+    .menu-icon .close-icon {
+        display: block;
+    }
+
+    .find-hotels-btn,
+    .register-hotels-btn {
+        margin: 5px;
+    }
+
+    .services-section .service-box {
+        flex: 1 1 20rem;
+    }
+
+    .services-section {
+        gap: 1rem;
+    }
+
+    .why_choose_AlphaStay_container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media(max-width: 450px) {
+    .home h1 {
+        font-size: 2.5rem;
+    }
+
+    .services-section .service-box {
+        flex: 1 1 20rem;
+    }
+
+    .services-section {
+        gap: 1rem;
+    }
+    footer{
+        margin-bottom: 13.6rem;
+    }
+}

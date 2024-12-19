@@ -1,0 +1,159 @@
+/* AddHotel.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.addhotel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.addhotel form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  border: 2px solid #dc0d0d;
+}
+
+.addhotel h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+}
+
+.addhotel h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #a777e3;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.flex-col p {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #191818;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #6e8efb;
+  box-shadow: 0 0 8px rgba(110, 142, 251, 0.2);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.add-img-upload {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-img-upload label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.add-img-upload img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.add-img-upload img:hover {
+  border-color: #e70404;
+}
+
+.amenities-list,
+.rooms-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.amenities-list label,
+.rooms-list label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #171515;
+}
+
+.amenities-list input,
+.rooms-list input {
+  margin-right: 10px;
+}
+
+.add-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+ background-color:rgb(174,38,0) ;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #fb7070;
+  box-shadow: 0 8px 15px rgba(103, 119, 227, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+  .addhotel form {
+    padding: 30px;
+  }
+
+  .amenities-list,
+  .rooms-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  
+  
