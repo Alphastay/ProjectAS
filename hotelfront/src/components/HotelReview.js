@@ -18,7 +18,7 @@ function HotelReview({ hotelId }) {
       if (!hotelId) return;
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/hotel_details/${hotelId}`
+          `https://alphastay.vercel.app/api/hotel_details/${hotelId}`
         );
         const data = response.data;
         console.log("fetched data is ", data);
