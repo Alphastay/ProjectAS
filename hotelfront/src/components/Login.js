@@ -23,7 +23,7 @@ function Login() {
   //     return;
   //   }
   //   try {
-  //     const res = await axios.post("http://localhost:4000/api/users/auth/google", {
+  //     const res = await axios.post("https://alphastay.vercel.app/api/users", {
   //       idToken: credential },
   //       {
   //       headers: {
@@ -50,7 +50,7 @@ function Login() {
     console.log("email and password", email, password);
     try {
       let result = await axios.post(
-        "http://localhost:4000/api/users/login",
+        "https://alphastay.vercel.app/api/users/login",
         {
           email,
           password,
@@ -77,7 +77,7 @@ function Login() {
     console.log("Signup executed", name, email, password);
     try {
       let result = await axios.post(
-        "http://localhost:4000/api/users/signup",
+        "https://alphastay.vercel.app/api/users/signup",
         {
           name,
           email,
