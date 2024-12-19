@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/loginadmins/loginadmin",
+        "https://alphastay.vercel.app/api/loginadmins/loginadmin",
         {
           email,
           password,
