@@ -72,7 +72,7 @@ import axios from "axios";
   }
 
     try {
-      const response = await axios.post("http://localhost:4000/api/addhotel", formData, {
+      const response = await axios.post("https://alphastay.vercel.app/api/addhotel", formData, {
           headers: { "Content-Type": "multipart/form-data" },
       });
       if (response.data.success) {
