@@ -7,7 +7,7 @@ export const HotelContextProvider = (props) => {
 
 const[hotel_list,setHotelList]=useState([]);
 
-const url='http://localhost:4000';
+const url='https://alphastay.vercel.app/';
 
 const fetchHotelList=async()=>{
   const response=await axios.get(`${url}/api/AlphaStay/hotels`);
