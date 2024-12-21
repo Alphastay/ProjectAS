@@ -42,7 +42,7 @@ function HotelReview({ hotelId }) {
     console.log("Review", newReview.title, newReview.comment, newReview.rating);
     try {
       let result = await axios.post(
-        `http://localhost:4000/api/hotel_details/${hotelId}/review`,
+        `https://alphastay.vercel.app/api/hotel_details/${hotelId}/review`,
         {
           title: newReview.title,
           comment: newReview.comment,
