@@ -36,8 +36,8 @@ const uploadImages = async (req, res) => {
       kingsize: req.body.bed?.kingsize || false,
       queensize: req.body.bed?.queensize || false,
     },
-    mainImage: mainImageUrl,
-    additionalImages: additionalImageUrls,
+   // mainImage: mainImageUrl,
+   // additionalImages: additionalImageUrls,
     // rooms:req.body.rooms,
   });
   try{
