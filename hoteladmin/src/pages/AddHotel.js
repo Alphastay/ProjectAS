@@ -43,10 +43,10 @@ import axios from "axios";
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    if(image.length < 1){
-      alert("Please upload at least one image");
-      return;
-    }
+  //  if(image.length < 1){
+    //  alert("Please upload at least one image");
+      //return;
+    // }
 
     const formData = new FormData();
     formData.append("name", name);
@@ -66,10 +66,10 @@ import axios from "axios";
     Object.keys(amenities).forEach((key) => formData.append(key, amenities[key]));
     Object.keys(bed).forEach((key) => formData.append(key, bed[key]));
    // image.forEach((file) => formData.append("images", file));
-  if (image.length > 0) {
-    formData.append("mainImage", image[0]); // First image
-    image.slice(1).forEach((file) => formData.append("additionalImages", file)); // Rest
-  }
+ // if (image.length > 0) {
+ //   formData.append("mainImage", image[0]); // First image
+ //   image.slice(1).forEach((file) => formData.append("additionalImages", file)); // Rest
+ //    }
 
     try {
       const response = await axios.post("https://alphastay.vercel.app/api/addhotel", formData, {
