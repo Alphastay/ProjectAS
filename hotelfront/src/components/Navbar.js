@@ -11,9 +11,6 @@ function Navbar()  {
 
   const handleNavigate = (path, target) => {
     navigate(path);
-    setTimeout(() => {
-      document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
-    }, 100); 
   };
 
   return (
@@ -30,20 +27,8 @@ function Navbar()  {
           <RouterLink activeClass="active" to="/" onClick={() => setShowMenu(false)} className="navItemMenu" >
             Home
           </RouterLink>
-          <div  onClick={()=>{handleNavigate('/header-content','ourMission')}} className="navItemMenu">
-            Our Mission
-          </div>
-          <div  onClick={()=>{handleNavigate('/header-content','why_choose_AlphaStay')}} className="navItemMenu">
-            Why Alpha Stay
-          </div>
-          <div  onClick={()=>{handleNavigate('/header-content','listing')}} className="navItemMenu">
-            List Your Hotel
-          </div>
-          <div  onClick={()=>{handleNavigate('/header-content','listing')}} className="navItemMenu">
-            Help
-          </div>
-          <div  onClick={()=>{handleNavigate('/header-content','listing')}} className="navItemMenu">
-            Contact
+          <div  onClick={()=>{handleNavigate('/header-content')}} className="navItemMenu">
+            About Alpha Stay
           </div>
           <RouterLink activeClass="active" to="/login"  >
             Login
@@ -56,20 +41,8 @@ function Navbar()  {
 
         <div className="navMenu" style={{ display: showMenu ? "flex" : "none" }}>
           <RouterLink to="/" className="listItem" onClick={() => setShowMenu(false) }>Home</RouterLink>
-          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content', 'ourMission'); }} className="listItem">
-            Our Mission
-          </div>
-          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content', 'why_choose_AlphaStay'); }} className="listItem">
-            Why Alpha Stay
-          </div>
-          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content', 'listing'); }} className="listItem">
-            List Your Hotel
-          </div>
-          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content', 'listing'); }} className="listItem">
-            Help
-          </div>
-          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content', 'listing'); }} className="listItem">
-            Contact
+          <div onClick={() => { setShowMenu(false); handleNavigate('/header-content'); }} className="listItem">
+            About Alpha Stay
           </div>
         </div>
       </nav>
