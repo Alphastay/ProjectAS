@@ -92,33 +92,33 @@ import axios from "axios";
           <p>Hotel Id</p>
           <input type="text" name="name" value={adminEmail} readOnly />
         </div> */}
-        <div className="add-img-upload flex-col">
-          <p>Upload Image</p>
-          <label for="image">
-            {image.length > 0 ? (
-              image.map((img, index) => (
-                <img
-                  key={index}
-                  src={URL.createObjectURL(img)}
-                  alt="Not Available"
-                />
-              ))
-            ) : (
-              <img src={upload} alt="Not Available" />
-            )}
-          </label>
-          <input
-            onChange={(e) => {
-              setImage(Array.from(e.target.files));
-            }}
-            type="file"
-            name="images"
-            id="image"
-            hidden
-            multiple
-            required
-          />
-        </div>
+        // <div className="add-img-upload flex-col">
+        //   <p>Upload Image</p>
+        //   <label for="image">
+        //     {image.length > 0 ? (
+        //       image.map((img, index) => (
+        //         <img
+        //           key={index}
+        //           src={URL.createObjectURL(img)}
+        //           alt="Not Available"
+        //         />
+        //       ))
+        //     ) : (
+        //       <img src={upload} alt="Not Available" />
+        //     )}
+        //   </label>
+        //   <input
+        //     onChange={(e) => {
+        //       setImage(Array.from(e.target.files));
+        //     }}
+        //     type="file"
+        //     name="images"
+        //     id="image"
+        //     hidden
+        //     multiple
+        //     required
+        //   />
+        // </div>
 
         <div className="add-hotel-name flex-col">
           <p>Hotel Name</p>
