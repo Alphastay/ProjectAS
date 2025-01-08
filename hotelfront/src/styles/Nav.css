@@ -132,7 +132,7 @@ i:hover {
     color: rgb(174,38,0);
 }
 
-.navbar_menu a {
+.navbar_menu .navItemMenu {
     color: #000;
     text-decoration: none;
     size: 1.2rem;
@@ -140,7 +140,7 @@ i:hover {
     padding-right: 1rem;
 }
 
-.navbar_menu a:hover {
+.navbar_menu .navItemMenu:hover {
     text-decoration: underline;
     color: rgb(174,38,0);
 }
