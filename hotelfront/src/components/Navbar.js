@@ -27,10 +27,10 @@ function Navbar()  {
           <RouterLink activeClass="active" to="/" onClick={() => setShowMenu(false)} className="navItemMenu" >
             Home
           </RouterLink>
-          <div  onClick={()=>{handleNavigate('/header-content')}} className="navItemMenu">
+          <div onClick={()=>{handleNavigate('/header-content')}} className="navItemMenu">
             About Alpha Stay
           </div>
-          <RouterLink activeClass="active" to="/login"  >
+          <RouterLink activeClass="active" to="/login" className="navItemMenu" >
             Login
           </RouterLink>
         </div>
