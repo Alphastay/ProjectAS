@@ -152,10 +152,12 @@ i:hover {
 }
 
 .home_container {
-  
-    margin: 20px;
+    max-width: 1170px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .home_container {
     margin-top: 90px;
     position: relative;
@@ -186,9 +188,11 @@ i:hover {
 .line {
     font-size: 2rem;
     margin-top: -30px;
+    color:  rgb(174,38,0);
+    text-align: center;
 }
 
-.home p {
+.home_container p {
     color: #f3f4f6;
     text-align: center;
     font-weight: 600;
@@ -339,7 +343,7 @@ footer{
 }
 
 .menu-icon i{
-    font-size: 60px;
+    font-size: 35px;
     color: rgb(174,38,0);
 }
 
@@ -392,6 +396,13 @@ footer{
         margin-bottom: 10px;
     }
 
+    .home_container{
+        margin: 100px 12px 0 12px;
+    }
+
+    .boxMission {
+        margin-top: 100px;
+    }
    
 }
 
@@ -433,8 +444,5 @@ footer{
 
     .services-section {
         gap: 1rem;
-    }
-    footer{
-        margin-bottom: 13.6rem;
     }
 }
