@@ -40,12 +40,11 @@ Hotel.css
 }
 
 .popular_card img {
-  width: fit-content;
+  width: 93.5%;
   height: 200px;
   margin: 10px;
-border: 1px solid black;
+  border: 1px solid black;
   align-items: center;
- 
 }
 
 .popular_content {
@@ -102,19 +101,9 @@ button:hover {
   background-color: rgb(150, 33, 0);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 768px) {
+  .popular_grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin-top: 380px;
+  }
+}
