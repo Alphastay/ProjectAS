@@ -193,8 +193,9 @@ import axios from "axios";
             required
           />
         </div>
-        <p>Map to the Hotel</p>
+        
         <div className="add-amenities flex-col">
+             <p>Map to the Hotel</p>
           <input
             type="text"
             name="location"
@@ -204,8 +205,9 @@ import axios from "axios";
             required
           />
         </div>
-        <p>Amenities</p>
+        
         <div className="add-amenities flex-col">
+             <p>Amenities</p>
           <div className="amenities-list">
             <label>
               <input
@@ -254,8 +256,9 @@ import axios from "axios";
             </label>
           </div>
         </div>
-        <p>Types of Beds</p>
+       
         <div className="add-amenities flex-col">
+                  <p>Types of Beds</p>
           <div className="amenities-list">
             <label>
               <input
