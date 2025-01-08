@@ -9,7 +9,7 @@ function Header() {
         <div className="home_container">
           <div className="home_content" id='home_content'>
             <h1>Hotels At Your Fingertips</h1>
-            <p className="line">━</p>
+            <p className="line" style={{ color: 'red' }}>━</p>
             <p>Browse Listing - Direct Contact - Book With Confidence</p>
             <div className="home_buttons">
               <Link to='/'>
@@ -22,7 +22,7 @@ function Header() {
           </div>
         </div>
       
-      <div className="box">
+      <div className="boxMission">
         <section id="ourMission" className="section_container our_mission_container">
           <div className="our_mission_content">
             <h1>Our Mission ?</h1>
@@ -62,6 +62,7 @@ function Header() {
       <div className="section_container list_property">
         <section id='listing' className="list_property_content">
           <h1>Work With Alpha Stay</h1>
+          <p className="line" style={{ color: 'white', margin: '-8px 0 -15px 0' }}>━</p>
           <button className="list_property_btn">List Your Property</button>
         </section>
       </div>
