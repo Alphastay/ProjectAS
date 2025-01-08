@@ -66,7 +66,7 @@ function Header() {
           <button className="list_property_btn">List Your Property</button>
         </section>
       </div>
-      <div className="box">
+      <div className="boxReport">
         <section id="ourMission" className="section_container our_mission_container">
           <div className="our_mission_content">
             <h1>Report Issues & Help Us Improve</h1>
