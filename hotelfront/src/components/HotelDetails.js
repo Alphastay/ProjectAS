@@ -60,7 +60,7 @@ function HotelDetails() {
                     }}
                   >
                     <img
-                      src={'https://alphastay.vercel.app/images/${img.split("/").pop()}'} // Use the image from the array based on the current index
+                      src={`https://alphastay.vercel.app/images/${img.split("/").pop()}`} // Use the image from the array based on the current index
                       alt={`Hotel ${name} Image ${index}`}
                       className="hotel-image"
                     />
