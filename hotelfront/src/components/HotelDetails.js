@@ -60,7 +60,7 @@ function HotelDetails() {
                     }}
                   >
                     <img
-                      src={`${url}/images/${img.split("/").pop()}`} // Use the image from the array based on the current index
+                      src={'https://alphastay.vercel.app/images/${img.split("/").pop()}'} // Use the image from the array based on the current index
                       alt={`Hotel ${name} Image ${index}`}
                       className="hotel-image"
                     />
@@ -69,7 +69,7 @@ function HotelDetails() {
               ) : (
                 <div className="slide">
                   <img
-                    src={`${url}/images/default-hotel.jpg`} // Fallback if no images
+                    src={https://alphastay.vercel.app/images/default-hotel.jpg} // Fallback if no images
                     alt={name}
                     className="hotel-image"
                     style={{ width: "100%" }}
