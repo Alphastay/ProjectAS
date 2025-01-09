@@ -56,13 +56,12 @@ const HotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  mainImage: String, // Main image URL
-  additionalImages: [String],
+  
 
-  // image: {
-  //   type: [String],
-  //   required: true,
-  // },
+  images: {
+    type: [String],
+    required: true,
+  },
   contact: {
     type: Number,
     required: true,
