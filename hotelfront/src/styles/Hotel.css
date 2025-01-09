@@ -107,3 +107,11 @@ button:hover {
     margin-top: 380px;
   }
 }
+
+@media (min-width: 603px) and (max-width: 770px) {
+  .popular_grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    margin-top: 30px; 
+    gap: 2px; 
+  }
+}
