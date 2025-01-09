@@ -5,18 +5,9 @@ import HotelReview from "./HotelReview";
 import { HotelContext } from "../Context/HotelContext";
 import "../styles/HotelDetails.css";
 
-function HotelDetails({ images }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+function HotelDetails() {
+ const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % image.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? image.length - 1 : prevIndex - 1
-    );
-  };
   const { hotelId } = useParams();
   const { hotel_list, url } = useContext(HotelContext);
 
@@ -26,11 +17,30 @@ function HotelDetails({ images }) {
     return <div>Loading...</div>; // You can add a loading state or message
   }
 
-  const { name,description, address, price, amenities,contact, bed,map, image } = selectedHotel;
+  const {
+    name,
+    description,
+    address,
+    price,
+    amenities,
+    contact,
+    bed,
+    map,
+    images,
+  } = selectedHotel;
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
     <>
-      {/* <img src={`${url}/images/${image}`} alt={name} /> */}
       <div className="section_container header_container">
         <div className="header_image_container">
           <div className="slider">
@@ -38,33 +48,32 @@ function HotelDetails({ images }) {
               ❮
             </button>
             <div className="slides">
-        {image && image.length > 0 ? (
-          image.map((img, index) => (
-            <div
-              className="slide"
-              key={index}
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-                transition: "transform 0.5s ease-in-out",
-                width: "100%",
-              }}
-            >
-              <img
-                src={`${url}/images/${img}`}
-                alt={`${name} Image ${index}`}
-                className="hotel-image"
-                style={{ width: "100%" }} // Ensure the image takes full width
-              />
-            </div>
-          ))
-        ) : (
-          <div className="slide">
-            <img
-              src={`${url}/images/${image}`}
-              alt={name}
-              className="hotel-image"
-              style={{ width: "100%" }}
-            />
+              {images && images.length > 0 ? (
+                images.map((img, index) => (
+                  <div
+                    key={index}
+                    className="slide"
+                    style={{
+                      transform: `translateX(-${currentIndex * 100}%)`, // Change slide based on current index
+                      transition: "transform 0.5s ease-in-out",
+                      width: "100%",
+                    }}
+                  >
+                    <img
+                      src={`${url}/images/${img.split("/").pop()}`} // Use the image from the array based on the current index
+                      alt={`Hotel ${name} Image ${index}`}
+                      className="hotel-image"
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="slide">
+                  <img
+                    src={`${url}/images/default-hotel.jpg`} // Fallback if no images
+                    alt={name}
+                    className="hotel-image"
+                    style={{ width: "100%" }}
+                  />
           </div>
         )}
       </div>
