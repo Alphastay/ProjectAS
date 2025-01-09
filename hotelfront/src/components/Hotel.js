@@ -14,7 +14,7 @@ const {url} =useContext(HotelContext);
              <div className="image-gallery">
            {images && images.length > 0 ? (
                 <img
-                  src={'https://alphastay.vercel.app/images/${images[0].split('/').pop()}'} 
+                  src={`https://alphastay.vercel.app/images/${images[0].split('/').pop()}`} 
                   alt={`Hotel ${name} Main Image`}
                   className="hotel-image"
                 />
