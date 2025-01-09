@@ -48,7 +48,7 @@ function HotelView({ category }) {
                 description={item.description}
                 price={item.price}
                 rating={item.averageRating}
-                image={item.image}
+                images={item.images}
                 onViewDetails={handleViewDetails}
               />
             );
@@ -66,7 +66,7 @@ function HotelView({ category }) {
           price={selectedRental.price}
           amenities={selectedRental.amenities}
           bed={selectedRental.bed}
-          image={selectedRental.image}
+          images={selectedRental.images}
           url={url}
         />
       )}
