@@ -24,7 +24,7 @@ import axios from "axios";
     kingsize: false,
     queensize: false,
   });
-  const [image, setImage] = useState([]);
+  const [images, setImages] = useState([]);
 
 
   const handleAmenityChange = (e) => {
@@ -40,14 +40,13 @@ import axios from "axios";
     });
   };
 
+   const handleImageChange = (e) => {
+    setImages(e.target.files); 
+  };
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
-   // if(image.length < 1){
-   //   alert("Please upload at least one image");
-   //    return;
-   //  }
-
+ 
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -65,11 +64,10 @@ import axios from "axios";
     formData.append("queensize", bed.queensize);
     Object.keys(amenities).forEach((key) => formData.append(key, amenities[key]));
     Object.keys(bed).forEach((key) => formData.append(key, bed[key]));
- //   image.forEach((file) => formData.append("images", file));
- // if (image.length > 0) {
- //   formData.append("mainImage", image[0]); // First image
- //   image.slice(1).forEach((file) => formData.append("additionalImages", file)); // Rest
- //    }
+
+     if (images.length > 0) {
+      Array.from(images).forEach((img) => formData.append("images", img));
+    }
 
     try {
       const response = await axios.post("https://alphastay.vercel.app/api/addhotel", formData, {
@@ -93,6 +91,17 @@ import axios from "axios";
           <p>Hotel Id</p>
           <input type="text" name="name" value={adminEmail} readOnly />
         </div> */}
+
+   <div className="add-img-upload flex-col">
+          <p>Upload Image</p>
+          <input
+            type="file"
+            name="images"
+            onChange={handleImageChange}
+            multiple
+            required
+          />
+        </div>
        
 
         <div className="add-hotel-name flex-col">
