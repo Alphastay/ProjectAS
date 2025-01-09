@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { HotelContext } from '../Context/HotelContext';
 import "../styles/Hotel.css";
 import {Link} from "react-router-dom";
 
-function Hotel({ id, name, price, rating,description, image, onViewDetails }) {
+function Hotel({ id, name, price, rating,description, images, onViewDetails }) {
 
 const {url} =useContext(HotelContext);
   return (
@@ -11,23 +11,19 @@ const {url} =useContext(HotelContext);
     <section className="hotel_container">
       <div className="popular_grid">
         <div className="popular_card">
-          {/* <img
-            src={`${url}/images/`+image}
-            alt="popular hotel" /> */}
              <div className="image-gallery">
-              {image && image.length > 1 ? (
-                
-                  <img
-                  
-                    src={`${url}/images/${image[0]}`}
-                    alt={`Hotel ${name} Image `}
-                    className="hotel-image"
-                  />
-                
+           {images && images.length > 0 ? (
+                <img
+                  src={`${url}/images/${images[0].split('/').pop()}`} 
+                  alt={`Hotel ${name} Main Image`}
+                  className="hotel-image"
+                />
               ) : (
                 <img
-                src={`${url}/images/`+image}
-                alt="popular hotel" /> 
+                  src={`${url}/images/default-hotel.jpg`} 
+                  alt="Default Hotel"
+                  className="hotel-image"
+                />
               )}
             </div>
           <div className="popular_content">
