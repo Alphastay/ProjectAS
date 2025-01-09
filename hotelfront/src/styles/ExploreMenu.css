@@ -132,3 +132,16 @@ body {
   }
 
 }
+
+@media (max-width: 768px) {
+  .explore-menu-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 15px 10px;
+    overflow-x: auto;
+    white-space: nowrap; 
+    position: relative; 
+    z-index: 1; 
+  }
+}
