@@ -49,6 +49,10 @@ body {
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
+.navItemMenuLogIn {
+    display: none;
+}
+
 
 .topnav {
     display: flex;
@@ -355,7 +359,8 @@ footer{
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    min-height: 1rem;
+    height: fit-content;
+    min-height: 15rem;
     background-color: rgb(255, 255, 255);
     border-radius: 1rem;
   }
@@ -393,6 +398,24 @@ footer{
 
     .navbar_menu.active a {
         margin-bottom: 10px;
+    }
+
+    .navItemMenuLogIn {
+        display: block;
+    }
+
+    .navItemMenuLogIn {
+        color: #000;
+        text-decoration: none;
+        size: 1.2rem;
+        font-weight: 550;
+        margin-left: 100px;
+        cursor: pointer;
+    }
+    
+    .navItemMenuLogIn:hover {
+        text-decoration: underline;
+        color: rgb(174,38,0);
     }
 
     .home_container{
