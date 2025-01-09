@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const {hotelList,addHotel,uploadImages,searchHotel} = require("../controllers/hotelController");
+const {hotelList,addHotel,searchHotel} = require("../controllers/hotelController");
 
 const hotelRouter =express.Router();
 
@@ -17,11 +17,8 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
   hotelRouter.get("/AlphaStay/hotels",hotelList);
-  hotelRouter.post("/addhotel", upload.fields([
-    { name: "mainImage", maxCount: 1 },
-    { name: "additionalImages", maxCount: 8 },
-  ]),addHotel);
-   hotelRouter.post("/upload", upload.array("images", 8),uploadImages)
+hotelRouter.post("/addhotel",upload.array("images", 10),addHotel);
+   //hotelRouter.post("/upload", upload.array("images", 8),uploadImages)
   hotelRouter.get("/search/:key",searchHotel)
 
 
