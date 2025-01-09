@@ -28,15 +28,11 @@ app.use(
 
 
 app.use("/images", express.static(path.join(__dirname, "upload/images")));
-
-
 app.use("/api/loginadmins",adminRouter)
 app.use("/api/users",userRouter)
-app.use('/images', express.static('upload/images'))
 app.use('/api',hotelRouter)
 app.use("/api",reviewRouter)
-// app.use("/api",updateRouter)
-app.use("/api",verifyaddhotelRouter)
+//app.use("/api",verifyaddhotelRouter)
 
 app.get("/", (req, res) => {
   res.send("Express app is running");
