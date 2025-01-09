@@ -1,21 +1,13 @@
 const Hotel = require("../models/Hotels");
 
-
-const uploadImages = async (req, res) => {
-    const imageUrls = req.files.map(file => `http://localhost:${port}/images/${file.filename}`);
-  
-    res.json({
-      success: true,
-      image_urls: imageUrls,
-    });
-  }
- 
-
-
  const addHotel = async (req, res) => {
   console.warn(req.body);
 
- 
+   const imageFiles = req.files ? req.files.map((file) => `https://alphastay.vercel.app/images/${file.filename}`) : [];
+
+  if (imageFiles.length === 0) {
+    return res.status(400).json({ message: "No images uploaded" });
+  }
 
   let hotel = new Hotel({
     name: req.body.name,
@@ -36,8 +28,7 @@ const uploadImages = async (req, res) => {
       kingsize: req.body.bed?.kingsize || false,
       queensize: req.body.bed?.queensize || false,
     },
-   // mainImage: mainImageUrl,
-   // additionalImages: additionalImageUrls,
+  images:imageFiles,
     // rooms:req.body.rooms,
   });
   try{
@@ -74,4 +65,4 @@ const hotelList = async (req, res) => {
   
 
 
-  module.exports= {hotelList,addHotel,uploadImages,searchHotel}
+  module.exports= {hotelList,addHotel,searchHotel}
