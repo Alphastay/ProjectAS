@@ -35,6 +35,9 @@ function Navbar()  {
           </RouterLink>
         </div>
 
+        <RouterLink activeClass="active" to="/login" className="navItemMenuLogIn" >
+            Login 
+          </RouterLink>
         <div className="menu-icon" onClick={() => setShowMenu(!showMenu)}>
           <i className="bx bx-menu"></i>
         </div>
