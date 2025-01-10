@@ -1,6 +1,7 @@
 import React, { useContext,useState } from 'react'
 import { HotelContext } from '../Context/HotelContext';
 import "../styles/Hotel.css";
+import Hotel1 from "../assets/hotel2.jpg";
 import {Link} from "react-router-dom";
 
 function Hotel({ id, name, price, rating,description, images, onViewDetails }) {
@@ -20,7 +21,7 @@ const {url} =useContext(HotelContext);
                 />
               ) : (
                 <img
-                  src={'https://alphastay.vercel.app/images/default-hotel.jpg'} 
+                  src={Hotel1} 
                   alt="Default Hotel"
                   className="hotel-image"
                 />
