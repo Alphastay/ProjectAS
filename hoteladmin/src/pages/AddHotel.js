@@ -65,9 +65,9 @@ import axios from "axios";
     Object.keys(amenities).forEach((key) => formData.append(key, amenities[key]));
     Object.keys(bed).forEach((key) => formData.append(key, bed[key]));
 
-     if (images.length > 0) {
-      Array.from(images).forEach((img) => formData.append("images", img));
-    }
+    //  if (images.length > 0) {
+    //   Array.from(images).forEach((img) => formData.append("images", img));
+    // }
 
     try {
       const response = await axios.post("https://alphastay.vercel.app/api/addhotel", formData, {
@@ -92,16 +92,16 @@ import axios from "axios";
           <input type="text" name="name" value={adminEmail} readOnly />
         </div> */}
 
-   <div className="add-img-upload flex-col">
-          <p>Upload Image</p>
-          <input
-            type="file"
-            name="images"
-            onChange={handleImageChange}
-            multiple
-            required
-          />
-        </div>
+   // <div className="add-img-upload flex-col">
+   //        <p>Upload Image</p>
+   //        <input
+   //          type="file"
+   //          name="images"
+   //          onChange={handleImageChange}
+   //          multiple
+   //          required
+   //        />
+   //      </div>
        
 
         <div className="add-hotel-name flex-col">
