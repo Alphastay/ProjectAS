@@ -40,9 +40,7 @@ import axios from "axios";
     });
   };
 
-   const handleImageChange = (e) => {
-    setImages(e.target.files); 
-  };
+  
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
