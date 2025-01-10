@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
   hotelRouter.get("/AlphaStay/hotels",hotelList);
-hotelRouter.post("/addhotel",upload.array("images", 10),addHotel);
+hotelRouter.post("/addhotel",addHotel);
    //hotelRouter.post("/upload", upload.array("images", 8),uploadImages)
   hotelRouter.get("/search/:key",searchHotel)
 
