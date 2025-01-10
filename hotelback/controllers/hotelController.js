@@ -3,11 +3,11 @@ const Hotel = require("../models/Hotels");
  const addHotel = async (req, res) => {
   console.warn(req.body);
 
-   const imageFiles = req.files ? req.files.map((file) => `https://alphastay.vercel.app/images/${file.filename}`) : [];
+  //  const imageFiles = req.files ? req.files.map((file) => `https://alphastay.vercel.app/images/${file.filename}`) : [];
 
-  if (imageFiles.length === 0) {
-    return res.status(400).json({ message: "No images uploaded" });
-  }
+  // if (imageFiles.length === 0) {
+  //   return res.status(400).json({ message: "No images uploaded" });
+  // }
 
   let hotel = new Hotel({
     name: req.body.name,
@@ -28,7 +28,7 @@ const Hotel = require("../models/Hotels");
       kingsize: req.body.bed?.kingsize || false,
       queensize: req.body.bed?.queensize || false,
     },
-  images:imageFiles,
+//  images:imageFiles,
     // rooms:req.body.rooms,
   });
   try{
