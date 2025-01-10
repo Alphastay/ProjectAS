@@ -13,25 +13,21 @@ const {url} =useContext(HotelContext);
       <div className="popular_grid">
         <div className="popular_card">
              <div className="image-gallery">
-           // {images && images.length > 0 ? (
-           //      <img
-           //        src={`https://alphastay.vercel.app/images/${images[0].split('/').pop()}`} 
-           //        alt={`Hotel ${name} Main Image`}
-           //        className="hotel-image"
-           //      />
-           //    ) : (
-           //      <img
-           //        src={Hotel1} 
-           //        alt="Default Hotel"
-           //        className="hotel-image"
-           //      />
-           //    )}
+           {images && images.length > 0 ? (
+                <img
+                  src={`https://alphastay.vercel.app/images/${images[0].split('/').pop()}`} 
+                  alt={`Hotel ${name} Main Image`}
+                  className="hotel-image"
+                />
+              ) : (
+                <img
+                  src={Hotel1} 
+                  alt="Default Hotel"
+                  className="hotel-image"
+                />
+              )}
 
-    <img
-                src={Hotel1} // Always uses the local placeholder image
-                alt={`Hotel ${name} Dummy Image`}
-                className="hotel-image"
-              />
+    
             </div>
           <div className="popular_content">
             <div className="popular_card_header">
