@@ -126,6 +126,8 @@ const HotelSchema = new mongoose.Schema({
   map: {
     type: String,
   },
+    mainImage: String, // Main image URL
+  additionalImages: [String],
 
   reviews: [ReviewSchema],
   // rooms: [RoomSchema]
